@@ -45,14 +45,21 @@ function initialize() {
 		storageBucket: storage,
 	};
 	mainApp = firebase.initializeApp(config);
-	var ref = mainApp.database().ref("mapCoords/Minneapolis");
+	var ref = mainApp.database().ref("pokemon/008/catches");
 	ref.on('child_added', function(childSnapshot, prevChildKey) {
-		childSnapshot.forEach(function(snap) {
-			var info = snap.val();
-			console.log(info.name);
-			var marker = new google.maps.Marker({label: info.name});
-			setMarker(marker, info.lat, info.long, map);
-		});
+		try {
+			var lat = childSnapshot.child('lat').val();
+			var lng = childSnapshot.child('long').val();
+			var id = childSnapshot.child('id').val();
+			var image = "https://www.weebly.com/editor/uploads/8/3/6/4/83645332/custom_themes/443316405555985946/files/images/" + id + ".png";
+			var marker = new google.maps.Marker({label: id,
+				icon: image});
+			setMarker(marker, lat, lng, map);
+		}
+		catch (err) {
+			console.log(err);
+			alert("no pokemon caught yet");
+		}
 	});
 }
 
