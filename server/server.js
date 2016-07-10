@@ -1,12 +1,13 @@
 //server.js
 var firebase = require("firebase");
-var serverCmds = require("./serverCmds.js")
+var fireCon = require("./fireCon.js");
+var serverCmds = require("./serverCmds.js");
 
 var mainApp;
-var key = "AIzaSyDfeAhkESQtU8WcaNME-T3AuOM3IggMxuY";
-var auth = "pogomaps-c5016.firebaseapp.com";
-var URL = "https://pogomaps-c5016.firebaseio.com";
-var storage = "pogomaps-c5016.appspot.com"
+var key = fireCon.FIREBASE_KEY;
+var auth = fireCon.FIREBASE_ID + ".firebaseapp.com";
+var URL = "https://" + fireCon.FIREBASE_ID + ".firebaseio.com";
+var storage = fireCon.FIREBASE_ID + ".appspot.com";
 
 var config = {
 	apiKey: key,
@@ -26,12 +27,10 @@ ref.on('child_added', function(childSnapshot, prevChildKey) {
 		serverCmds.postMap(childSnapshot, mainApp.database());
 		serverCmds.postMon(childSnapshot, mainApp.database());	
 	}	
-	
-	catch(err){
+	catch (err) {
 		console.log(err);
 	}
-
-	finally{
+	finally {
 		var key = childSnapshot.getKey();
 		mainApp.database().ref("listenCoords/" + key).remove();
 		console.log("complete");
