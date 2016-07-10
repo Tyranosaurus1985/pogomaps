@@ -1,6 +1,6 @@
 //submitControl.js
 var mainApp;
-var config = require("./fireBaseConfig.js");
+var fireCon = require("./fireBaseConfig.js");
 
 var key = config.FIREBASE_KEY;
 var auth = config.FIREBASE_ID + ".firebaseapp.com";
