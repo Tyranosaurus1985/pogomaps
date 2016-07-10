@@ -1,12 +1,13 @@
 //server.js
 var firebase = require("firebase");
-var serverCmds = require("./serverCmds.js")
+var serverCmds = require("./serverCmds.js");
+var fireCon = require("./fireBaseConfig.js");
 
 var mainApp;
-var key = "AIzaSyDfeAhkESQtU8WcaNME-T3AuOM3IggMxuY";
-var auth = "pogomaps-c5016.firebaseapp.com";
-var URL = "https://pogomaps-c5016.firebaseio.com";
-var storage = "pogomaps-c5016.appspot.com"
+var key = fireCon.FIREBASE_KEY;
+var auth = fireCon.FIREBASE_ID + ".firebaseapp.com";
+var URL = "https://" + FIREBASE_ID + ".firebaseio.com";
+var storage = FIREBASE_ID + ".appspot.com"
 
 var config = {
 	apiKey: key,
