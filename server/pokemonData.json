@@ -1,0 +1,56 @@
+{
+	"Bulbasaur": {
+		"name": "Bulbasaur",
+		"id": "001",
+		"gen": "1",
+		"type": ["Poison", "Grass"]
+	},
+	"Ivysaur": {
+		"name": "Ivysaur",
+		"id": "002",
+		"gen": "1",
+		"type": ["Poison", "Grass"]
+	},
+	"Venusaur": {
+		"name": "Venusaur",
+		"id": "003",
+		"gen": "1",
+		"type": ["Poison", "Grass"]
+	},
+	"Charmander": {
+		"name": "Charmander",
+		"id": "004",
+		"gen": "1",
+		"type": ["Fire"]
+	},
+	"Charmeleon": {
+		"name": "Charmeleon",
+		"id": "005",
+		"gen": "1",
+		"type": ["Fire"]
+	},
+	"Charizard": {
+		"name": "Charizard",
+		"id": "006",
+		"gen": "1",
+		"type": ["Fire", "Flying"]
+	},
+	"Squirtle": {
+		"name": "Squirtle",
+		"id": "007",
+		"gen": "1",
+		"type": ["Water"]
+	},
+	"Wartortle": {
+		"name": "Wartortle",
+		"id": "008",
+		"gen": "1",
+		"type": ["Water"]
+	},
+	"Blastoise": {
+		"name": "Blastoise",
+		"id": "009",
+		"gen": "1",
+		"type": ["Water"]
+	}
+}
