@@ -1,0 +1,15 @@
+div.map {
+	height: 60%;
+	width: 55%;
+	top: 17%;
+	left: 5%;
+}
+div.form {
+	position: absolute;
+	top: 40%;
+	margin-left: 65%;
+	width: 15%;
+}
+input[type=text] {
+	width: 60%;
+}
