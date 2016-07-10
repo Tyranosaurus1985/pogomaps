@@ -55,8 +55,8 @@
 	},
 		"Caterpie": {
 		"name": "Caterpie",
-		"id": "",
-		"gen": "010",
+		"id": "010",
+		"gen": "1",
 		"type": ["Bug"]
 	},
 		"Metapod": {
