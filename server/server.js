@@ -1,13 +1,12 @@
 //server.js
 var firebase = require("firebase");
-var serverCmds = require("./serverCmds.js");
-var fireCon = require("./fireBaseConfig.js");
+var serverCmds = require("./serverCmds.js")
 
 var mainApp;
-var key = fireCon.FIREBASE_KEY;
-var auth = fireCon.FIREBASE_ID + ".firebaseapp.com";
-var URL = "https://" + FIREBASE_ID + ".firebaseio.com";
-var storage = FIREBASE_ID + ".appspot.com"
+var key = "AIzaSyDfeAhkESQtU8WcaNME-T3AuOM3IggMxuY";
+var auth = "pogomaps-c5016.firebaseapp.com";
+var URL = "https://pogomaps-c5016.firebaseio.com";
+var storage = "pogomaps-c5016.appspot.com"
 
 var config = {
 	apiKey: key,
@@ -20,12 +19,21 @@ mainApp = firebase.initializeApp(config);
 
 var ref = mainApp.database().ref("listenCoords");
 ref.on('child_added', function(childSnapshot, prevChildKey) {
-	serverCmds.postDate(childSnapshot, mainApp.database());
-	serverCmds.postType(childSnapshot, mainApp.database());
-	serverCmds.postMap(childSnapshot, mainApp.database());
-	serverCmds.postMon(childSnapshot, mainApp.database());
 	//console.log(snapValue);
-	var key = childSnapshot.getKey();
-	mainApp.database().ref("listenCoords/" + key).remove();
-	console.log("complete");
+	try {
+		serverCmds.postDate(childSnapshot, mainApp.database());
+		serverCmds.postType(childSnapshot, mainApp.database());
+		serverCmds.postMap(childSnapshot, mainApp.database());
+		serverCmds.postMon(childSnapshot, mainApp.database());	
+	}	
+	
+	catch(err){
+		console.log(err);
+	}
+
+	finally{
+		var key = childSnapshot.getKey();
+		mainApp.database().ref("listenCoords/" + key).remove();
+		console.log("complete");
+	}
 });
