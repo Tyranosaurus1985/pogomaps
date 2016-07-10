@@ -41,6 +41,7 @@ exports.postMon = function(snapShot, app) {
 	var name = snapVal["name"];
 	var id = pokedex[name]["id"];
 	var updates = {
+		id: id,
 		lat: lat,
 		long: lon
 	};
