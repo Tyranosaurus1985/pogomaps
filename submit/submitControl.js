@@ -1,9 +1,12 @@
 //submitControl.js
 var mainApp;
-var key = "AIzaSyDfeAhkESQtU8WcaNME-T3AuOM3IggMxuY";
-var auth = "pogomaps-c5016.firebaseapp.com";
-var URL = "https://pogomaps-c5016.firebaseio.com";
-var storage = "pogomaps-c5016.appspot.com"
+var config = require("./fireBaseConfig.js");
+
+var key = config.FIREBASE_KEY;
+var auth = config.FIREBASE_ID + ".firebaseapp.com";
+var URL = "https://" + FIREBASE_ID + ".firebaseio.com";
+var storage = FIREBASE_ID + ".appspot.com"
+
 function initialize() {
     var config = {
 		apiKey: key,
@@ -14,6 +17,7 @@ function initialize() {
 	mainApp = firebase.initializeApp(config);
 	console.log("init");
 }
+
 function fireSub() {
 
 	var name = document.getElementById("pokemon").value;
